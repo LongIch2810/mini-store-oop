@@ -15,6 +15,8 @@ import { CartService } from "./services/cart.service";
 
 import { User } from "./model/user.class";
 import { Product } from "./model/product.class";
+import { Wallet } from "./model/wallet.class";
+import { CartItem } from "./model/cartItem.class";
 
 // Khởi tạo các Repository và Service
 const userRepo = new UserRepository();
@@ -226,7 +228,7 @@ async function adminMenu(admin: User): Promise<void> {
                         console.log(`Ví hiện tại [${wallet.id}] có số dư: ${formatVND(wallet.getBalance())}`);
                         const amountStr = (await rl.question(" Nhập số tiền muốn nạp (VNĐ): ")).trim();
                         const amount = Number(amountStr);
-                        const updated = await walletService.deposit(wallet.id, amount);
+                        const updated = await walletService.deposit(wallet, amount);
                         if (updated) {
                             console.log(`\n-> Nạp tiền thành công! Số dư mới: ${formatVND(updated.getBalance())}`);
                         }
@@ -342,7 +344,8 @@ async function userMenu(currentUser: User): Promise<void> {
                             } else if (quantity > product.getStock()) {
                                 console.log(`Số lượng yêu cầu (${quantity}) vượt quá số tồn kho hiện có (${product.getStock()})!`);
                             } else {
-                                await cartService.addItem(cart.id, productId, quantity);
+                                const cartItem = new CartItem(cart.id, productId, quantity);
+                                await cartService.addItem(cartItem);
                                 console.log(`\n-> Đã thêm thành công ${quantity} "${product.getName()}" vào giỏ hàng!`);
                             }
                         }
@@ -394,7 +397,7 @@ async function userMenu(currentUser: User): Promise<void> {
                     } else {
                         const amountStr = (await rl.question(" Nhập số tiền muốn nạp (VNĐ): ")).trim();
                         const amount = Number(amountStr);
-                        const updated = await walletService.deposit(wallet.id, amount);
+                        const updated = await walletService.deposit(wallet, amount);
                         if (updated) {
                             console.log(`\n-> Nạp tiền thành công! Số dư mới: ${formatVND(updated.getBalance())}`);
                         }
@@ -416,7 +419,7 @@ async function userMenu(currentUser: User): Promise<void> {
                         console.log(`Số dư hiện tại: ${formatVND(wallet.getBalance())}`);
                         const amountStr = (await rl.question(" Nhập số tiền muốn rút (VNĐ): ")).trim();
                         const amount = Number(amountStr);
-                        const updated = await walletService.withdraw(wallet.id, amount);
+                        const updated = await walletService.withdraw(wallet, amount);
                         if (updated) {
                             console.log(`\n-> Rút tiền thành công! Số dư còn lại: ${formatVND(updated.getBalance())}`);
                         }
@@ -479,19 +482,20 @@ async function userMenu(currentUser: User): Promise<void> {
                                 } else {
                                     const confirm = (await rl.question("\n Xác nhận thanh toán đơn hàng này? (y/n): ")).trim().toLowerCase();
                                     if (confirm === "y") {
-                                        // 1. Trừ tiền ví
-                                        await walletService.withdraw(wallet.id, totalBill);
+                                        // 1. Trừ tiền ví thông qua đối tượng Wallet
+                                        await walletService.withdraw(wallet, totalBill);
 
-                                        // 2. Trừ tồn kho sản phẩm
+                                        // 2. Trừ tồn kho sản phẩm thông qua đối tượng Product
                                         for (const it of checkoutItems) {
                                             it.product.decreaseStock(it.quantity);
                                             await prodService.update(it.product.id, it.product, "admin");
                                         }
 
-                                        // 3. Làm rỗng giỏ hàng
+                                        // 3. Làm rỗng giỏ hàng thông qua đối tượng Cart
                                         for (const it of checkoutItems) {
-                                            await cartService.removeItem(cart.id, it.product.id);
+                                            cart.removeItem(it.product.id);
                                         }
+                                        await cartService.save(cart);
 
                                         const updatedWallet = await walletService.getWalletByUserId(currentUser.id);
                                         console.log("\n============================================================");

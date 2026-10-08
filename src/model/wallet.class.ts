@@ -29,4 +29,21 @@ export class Wallet {
         this.validateBalance(balance);
         this.balance = balance;
     }
+
+    deposit(amount: number): void {
+        if (typeof amount !== "number" || isNaN(amount) || amount <= 0) {
+            throw new Error("Deposit amount must be positive");
+        }
+        this.balance += amount;
+    }
+
+    withdraw(amount: number): void {
+        if (typeof amount !== "number" || isNaN(amount) || amount <= 0) {
+            throw new Error("Withdraw amount must be positive");
+        }
+        if (this.balance < amount) {
+            throw new Error("Insufficient funds");
+        }
+        this.balance -= amount;
+    }
 }

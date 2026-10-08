@@ -42,35 +42,31 @@ export class WalletService implements IService<Wallet> {
         return await this.walletRepository.findByUserId(userId);
     }
 
-    async deposit(walletId: string, amount: number): Promise<Wallet | null> {
-        if (amount <= 0) {
-            console.log("Deposit amount must be positive");
-            return null;
-        }
-        const wallet = await this.walletRepository.read(walletId);
-        if (!wallet) {
-            console.log("Wallet not found");
-            return null;
-        }
-        wallet.setBalance(wallet.getBalance() + amount);
-        return await this.walletRepository.update(walletId, wallet);
+    async save(wallet: Wallet): Promise<Wallet> {
+        return await this.walletRepository.update(wallet.id, wallet);
     }
 
-    async withdraw(walletId: string, amount: number): Promise<Wallet | null> {
-        if (amount <= 0) {
-            console.log("Withdraw amount must be positive");
-            return null;
-        }
-        const wallet = await this.walletRepository.read(walletId);
+    async deposit(target: string | Wallet, amount: number): Promise<Wallet | null> {
+        const wallet = target instanceof Wallet ? target : await this.walletRepository.read(target);
         if (!wallet) {
             console.log("Wallet not found");
             return null;
         }
-        if (wallet.getBalance() < amount) {
-            console.log("Insufficient funds");
+        // Thao tác trực tiếp trên domain method của đối tượng Wallet
+        wallet.deposit(amount);
+        // Lưu đối tượng Wallet đã thay đổi trạng thái
+        return await this.walletRepository.update(wallet.id, wallet);
+    }
+
+    async withdraw(target: string | Wallet, amount: number): Promise<Wallet | null> {
+        const wallet = target instanceof Wallet ? target : await this.walletRepository.read(target);
+        if (!wallet) {
+            console.log("Wallet not found");
             return null;
         }
-        wallet.setBalance(wallet.getBalance() - amount);
-        return await this.walletRepository.update(walletId, wallet);
+        // Thao tác trực tiếp trên domain method của đối tượng Wallet
+        wallet.withdraw(amount);
+        // Lưu đối tượng Wallet đã thay đổi trạng thái
+        return await this.walletRepository.update(wallet.id, wallet);
     }
 }

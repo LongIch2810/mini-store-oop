@@ -35,21 +35,38 @@ export class CartService implements IService<Cart> {
         return await this.cartRepository.findByUserId(userId);
     }
 
-    async addItem(cartId: string, productId: string, quantity: number): Promise<Cart | null> {
-        if (quantity <= 0) {
-            console.log("Quantity must be greater than 0");
-            return null;
+    async save(cart: Cart): Promise<Cart> {
+        return await this.cartRepository.update(cart.id, cart);
+    }
+
+    async addItem(arg1: string | CartItem, arg2?: string, arg3?: number): Promise<Cart | null> {
+        let cartId: string;
+        let item: CartItem;
+
+        if (arg1 instanceof CartItem) {
+            item = arg1;
+            cartId = item.cartId;
+        } else {
+            cartId = arg1;
+            const productId = arg2!;
+            const quantity = arg3!;
+            item = new CartItem(cartId, productId, quantity);
         }
+
         const cart = await this.cartRepository.read(cartId);
         if (!cart) {
             console.log("Cart not found");
             return null;
         }
 
-        const newItem = new CartItem(cartId, productId, quantity);
-        await this.cartItemRepository.create(newItem);
+        // 1. Thao tác thêm vào chính đối tượng Cart
+        cart.addItem(item);
 
-        return await this.cartRepository.read(cartId);
+        // 2. Lưu đối tượng CartItem và Cart thông qua repository
+        await this.cartItemRepository.create(item);
+        await this.cartRepository.update(cart.id, cart);
+
+        return cart;
     }
 
     async removeItem(cartId: string, productId: string): Promise<Cart | null> {
@@ -59,7 +76,13 @@ export class CartService implements IService<Cart> {
             return null;
         }
 
+        // 1. Thao tác xóa trên chính đối tượng Cart
+        cart.removeItem(productId);
+
+        // 2. Lưu trạng thái cập nhật xuống repository
         await this.cartItemRepository.delete(cartId, productId);
-        return await this.cartRepository.read(cartId);
+        await this.cartRepository.update(cart.id, cart);
+
+        return cart;
     }
 }
