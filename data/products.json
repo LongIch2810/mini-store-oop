@@ -1,0 +1,302 @@
+[
+  {
+    "id": "10b9e60a-7094-451c-af28-52c605851dc2",
+    "name": "iPhone 15 Pro Gen 1",
+    "price": 200000,
+    "stock": 13
+  },
+  {
+    "id": "dee75cf8-f14e-4f9a-83db-72917fe7f84e",
+    "name": "MacBook Air M3 Gen 1",
+    "price": 300000,
+    "stock": 16
+  },
+  {
+    "id": "fc308234-4406-45f1-9050-75c327885736",
+    "name": "Bàn phím cơ Keychron K2 Gen 1",
+    "price": 400000,
+    "stock": 19
+  },
+  {
+    "id": "f110fd38-491b-4d2a-9548-ba7ba491e7eb",
+    "name": "Chuột Logitech MX Master 3S Gen 1",
+    "price": 500000,
+    "stock": 22
+  },
+  {
+    "id": "ddd859b0-1432-4f83-b359-ee861488738b",
+    "name": "Màn hình Dell UltraSharp 27 Gen 1",
+    "price": 600000,
+    "stock": 25
+  },
+  {
+    "id": "65fdc525-7eff-48c6-83c2-ea0a801986be",
+    "name": "Tai nghe Sony WH-1000XM5 Gen 1",
+    "price": 700000,
+    "stock": 28
+  },
+  {
+    "id": "8a5cdcac-f253-46ad-8abf-676ef48708af",
+    "name": "iPad Pro 11 inch Gen 1",
+    "price": 800000,
+    "stock": 31
+  },
+  {
+    "id": "a1da89b7-aa4d-4682-af28-005c30f71390",
+    "name": "Apple Watch Series 9 Gen 1",
+    "price": 900000,
+    "stock": 34
+  },
+  {
+    "id": "6ddbd2aa-a6b5-4b75-86a3-f17978a86776",
+    "name": "Cáp sạc USB-C Anker Gen 1",
+    "price": 1000000,
+    "stock": 37
+  },
+  {
+    "id": "17d827da-43ac-4b01-9ad3-ea7fa765a2c5",
+    "name": "Pin dự phòng Baseus 20000mAh Gen 1",
+    "price": 1100000,
+    "stock": 40
+  },
+  {
+    "id": "102bc417-170e-4bbc-bdca-24503f1639a7",
+    "name": "Loa Bluetooth JBL Flip 6 Gen 1",
+    "price": 1200000,
+    "stock": 43
+  },
+  {
+    "id": "00b0fbfd-9cb0-48e9-8529-c6a65153e412",
+    "name": "Ổ cứng SSD Samsung 1TB Gen 1",
+    "price": 1300000,
+    "stock": 46
+  },
+  {
+    "id": "f2d2ed31-e7d0-41eb-b967-6cee6beaed7e",
+    "name": "Webcam Logitech Brio 4K Gen 1",
+    "price": 1400000,
+    "stock": 49
+  },
+  {
+    "id": "4dc54961-affb-41eb-9130-8d8b60261df7",
+    "name": "Mic thu âm Rode NT-USB Gen 1",
+    "price": 1500000,
+    "stock": 52
+  },
+  {
+    "id": "fbf62587-2490-4b3c-ad15-96c8d8e7f977",
+    "name": "Ghế công thái học Ergonomic Gen 1",
+    "price": 1600000,
+    "stock": 55
+  },
+  {
+    "id": "5b2ecafe-06e4-45e5-a3fa-7617c28f0cf0",
+    "name": "Bàn nâng hạ thông minh Gen 1",
+    "price": 1700000,
+    "stock": 58
+  },
+  {
+    "id": "87f21798-d05b-46df-a04e-32ab5896d6d9",
+    "name": "Đèn bàn chống cận Xiaomi Gen 1",
+    "price": 1800000,
+    "stock": 61
+  },
+  {
+    "id": "cbe7207d-4480-418d-870d-4d8a88302ecf",
+    "name": "Máy lọc không khí Levoit Gen 1",
+    "price": 1900000,
+    "stock": 64
+  },
+  {
+    "id": "bcce596a-1692-4e9c-a74c-6b13381196c8",
+    "name": "Bình giữ nhiệt Lock&Lock Gen 1",
+    "price": 2000000,
+    "stock": 67
+  },
+  {
+    "id": "b2f58d59-eb76-4038-8d8c-f66a48ac8293",
+    "name": "Balo laptop chống nước Gen 1",
+    "price": 100000,
+    "stock": 70
+  },
+  {
+    "id": "d437f88f-e83d-44e9-b2aa-cabfa7455ff3",
+    "name": "iPhone 15 Pro Gen 2",
+    "price": 200000,
+    "stock": 73
+  },
+  {
+    "id": "eda355fe-eae3-41e5-a779-72dddaac2dd0",
+    "name": "MacBook Air M3 Gen 2",
+    "price": 300000,
+    "stock": 76
+  },
+  {
+    "id": "dffd0b6d-20a1-4823-a42f-ccf2dd166143",
+    "name": "Bàn phím cơ Keychron K2 Gen 2",
+    "price": 400000,
+    "stock": 79
+  },
+  {
+    "id": "8b8165bb-be0c-4577-af2f-19d10e1310aa",
+    "name": "Chuột Logitech MX Master 3S Gen 2",
+    "price": 500000,
+    "stock": 82
+  },
+  {
+    "id": "67901a92-8396-4553-879d-9e8f795ec1a1",
+    "name": "Màn hình Dell UltraSharp 27 Gen 2",
+    "price": 600000,
+    "stock": 85
+  },
+  {
+    "id": "71f14352-166f-4a96-ae06-c8c6b9a1b4f7",
+    "name": "Tai nghe Sony WH-1000XM5 Gen 2",
+    "price": 700000,
+    "stock": 88
+  },
+  {
+    "id": "bc7241f3-2e04-4e52-bf96-8a3de6eb5552",
+    "name": "iPad Pro 11 inch Gen 2",
+    "price": 800000,
+    "stock": 91
+  },
+  {
+    "id": "4bb15105-34a1-4d9c-9a94-acebef0ccb5c",
+    "name": "Apple Watch Series 9 Gen 2",
+    "price": 900000,
+    "stock": 94
+  },
+  {
+    "id": "15031f9f-cece-4261-9434-ab5e8995df0a",
+    "name": "Cáp sạc USB-C Anker Gen 2",
+    "price": 1000000,
+    "stock": 97
+  },
+  {
+    "id": "e88d0cc0-2030-492a-b8e7-6a513da9a0ab",
+    "name": "Pin dự phòng Baseus 20000mAh Gen 2",
+    "price": 1100000,
+    "stock": 100
+  },
+  {
+    "id": "9d887d3f-5196-4a92-9a12-25d6e78dc715",
+    "name": "Loa Bluetooth JBL Flip 6 Gen 2",
+    "price": 1200000,
+    "stock": 103
+  },
+  {
+    "id": "5b7d1af4-9768-40b3-ad9c-5f7525f53d74",
+    "name": "Ổ cứng SSD Samsung 1TB Gen 2",
+    "price": 1300000,
+    "stock": 106
+  },
+  {
+    "id": "16a6ecf4-f045-4db1-9513-66734725c049",
+    "name": "Webcam Logitech Brio 4K Gen 2",
+    "price": 1400000,
+    "stock": 109
+  },
+  {
+    "id": "9869d627-6674-4dfb-970c-a49ceb7d49e6",
+    "name": "Mic thu âm Rode NT-USB Gen 2",
+    "price": 1500000,
+    "stock": 112
+  },
+  {
+    "id": "08df423e-debf-492b-ac2c-3184a4c21c36",
+    "name": "Ghế công thái học Ergonomic Gen 2",
+    "price": 1600000,
+    "stock": 115
+  },
+  {
+    "id": "49c3dd8a-65da-4b29-8381-a6633d79d59a",
+    "name": "Bàn nâng hạ thông minh Gen 2",
+    "price": 1700000,
+    "stock": 118
+  },
+  {
+    "id": "34ce5f62-c6a2-48ec-b642-c8e605f12af7",
+    "name": "Đèn bàn chống cận Xiaomi Gen 2",
+    "price": 1800000,
+    "stock": 121
+  },
+  {
+    "id": "52734d04-7fcc-4302-a6db-37e05670ecec",
+    "name": "Máy lọc không khí Levoit Gen 2",
+    "price": 1900000,
+    "stock": 124
+  },
+  {
+    "id": "f7b7d50c-ee58-4820-b518-5895166e8108",
+    "name": "Bình giữ nhiệt Lock&Lock Gen 2",
+    "price": 2000000,
+    "stock": 127
+  },
+  {
+    "id": "ee8466a0-f7a5-419f-9220-cc5b633762ff",
+    "name": "Balo laptop chống nước Gen 2",
+    "price": 100000,
+    "stock": 130
+  },
+  {
+    "id": "3ac9965a-2601-4b5a-a7e8-2aed66654b46",
+    "name": "iPhone 15 Pro Gen 3",
+    "price": 200000,
+    "stock": 133
+  },
+  {
+    "id": "a817782d-6342-4ef2-b268-794f847edd1e",
+    "name": "MacBook Air M3 Gen 3",
+    "price": 300000,
+    "stock": 136
+  },
+  {
+    "id": "908289d0-dbb7-45f7-8918-dce3af160ca2",
+    "name": "Bàn phím cơ Keychron K2 Gen 3",
+    "price": 400000,
+    "stock": 139
+  },
+  {
+    "id": "340fc9be-00c5-4cef-bcfb-7298dbcf123e",
+    "name": "Chuột Logitech MX Master 3S Gen 3",
+    "price": 500000,
+    "stock": 142
+  },
+  {
+    "id": "48a5b0b5-c9fc-4d53-810d-349d0525ec5b",
+    "name": "Màn hình Dell UltraSharp 27 Gen 3",
+    "price": 600000,
+    "stock": 145
+  },
+  {
+    "id": "abfd17e7-6091-4485-a142-c058a7a89a84",
+    "name": "Tai nghe Sony WH-1000XM5 Gen 3",
+    "price": 700000,
+    "stock": 148
+  },
+  {
+    "id": "58958566-cbb1-4051-8855-aa0449059e82",
+    "name": "iPad Pro 11 inch Gen 3",
+    "price": 800000,
+    "stock": 151
+  },
+  {
+    "id": "3a017152-ce8e-4a69-bbdd-9741ee582b95",
+    "name": "Apple Watch Series 9 Gen 3",
+    "price": 900000,
+    "stock": 154
+  },
+  {
+    "id": "4204d31a-f6c3-4757-80c1-e2dbadc6bb3c",
+    "name": "Cáp sạc USB-C Anker Gen 3",
+    "price": 1000000,
+    "stock": 157
+  },
+  {
+    "id": "2b610cc9-b45a-4729-9002-89dc99d0dbed",
+    "name": "Pin dự phòng Baseus 20000mAh Gen 3",
+    "price": 1100000,
+    "stock": 160
+  }
+]

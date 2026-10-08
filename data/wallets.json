@@ -1,0 +1,252 @@
+[
+  {
+    "id": "d64a56ce-92fc-45f8-b6d4-44c412d905ac",
+    "userId": "680a84ba-5944-4ad2-a281-d933d033ecd9",
+    "balance": 600000
+  },
+  {
+    "id": "b18af74e-c650-4e1a-b6ee-410dc7f854f3",
+    "userId": "8778fac6-dc74-4b9b-9ccf-93e1d2af0a42",
+    "balance": 700000
+  },
+  {
+    "id": "82da4280-af60-4c3e-a38b-e1b5efb0de79",
+    "userId": "9c679f01-583f-407e-9454-1f3adbbf2e25",
+    "balance": 800000
+  },
+  {
+    "id": "ac3d4134-65c2-43f8-9ec2-3a5e035b4dc1",
+    "userId": "939ab511-16df-4776-b09d-e396ea05c950",
+    "balance": 900000
+  },
+  {
+    "id": "fad2ba67-2083-4798-8f8d-ba5748a32ddd",
+    "userId": "1c3ea979-5938-4dd9-8a6e-f1b9c463fe20",
+    "balance": 1000000
+  },
+  {
+    "id": "1003040e-d7d2-4cdc-b6ad-025c24623975",
+    "userId": "49e907e4-484d-4b28-b10b-67a9422d8669",
+    "balance": 1100000
+  },
+  {
+    "id": "ad834f3a-8770-4c60-a45a-85fb0e96d175",
+    "userId": "22af49f3-69e8-48ba-aacb-ca253e9c93b7",
+    "balance": 1200000
+  },
+  {
+    "id": "a68ee168-61ff-4181-82c1-64bb446bb228",
+    "userId": "43dc0b1d-8bdf-464f-a535-deee15626e1c",
+    "balance": 1300000
+  },
+  {
+    "id": "aa215340-53e1-4137-9084-5e7b24251100",
+    "userId": "a65e36bd-c2e8-4ecb-8237-f8be50223c72",
+    "balance": 1400000
+  },
+  {
+    "id": "70657813-ffe4-4b81-9440-3bff05123269",
+    "userId": "1d6b2e8b-e7d5-40ae-bcae-d5e9ed0d8856",
+    "balance": 1500000
+  },
+  {
+    "id": "ebe84bf8-592d-4cfb-97bb-c549139233ac",
+    "userId": "a397d2ed-e07c-4593-be32-1b6b91c80992",
+    "balance": 1600000
+  },
+  {
+    "id": "7abd8603-6a11-4a17-a2c4-e5491b0cfd7f",
+    "userId": "6ee16bbd-294e-46a7-9a44-f3285febda56",
+    "balance": 1700000
+  },
+  {
+    "id": "37a2ba08-2f2d-48c3-84d9-f5ef23bcce46",
+    "userId": "57a2532f-65df-40e1-abf1-ccea06705713",
+    "balance": 1800000
+  },
+  {
+    "id": "0111cb4d-1d1d-42d6-87e2-fb5bf197b729",
+    "userId": "5de369f8-704b-4b60-b544-d04bf5ecb942",
+    "balance": 1900000
+  },
+  {
+    "id": "d85358e8-e3d2-49d2-9ce3-309c86b61a9d",
+    "userId": "287a5073-27f1-4d5b-b7ab-37951275a810",
+    "balance": 2000000
+  },
+  {
+    "id": "6bb05264-8418-4587-9315-590f4bc67729",
+    "userId": "6627cf05-4495-4ac7-a419-ab397c7dcffe",
+    "balance": 2100000
+  },
+  {
+    "id": "250d4965-4040-4d8a-817d-0ab302526a4a",
+    "userId": "b909d0cf-261a-4fb4-8556-d9c1f40a7158",
+    "balance": 2200000
+  },
+  {
+    "id": "bc05e664-d9df-4631-aa28-fe2adb6caf76",
+    "userId": "33018457-9dd4-41c4-9c8f-ebfc40ac185b",
+    "balance": 2300000
+  },
+  {
+    "id": "b5b4ad8e-35d1-4e86-a7bb-456b8fb02dab",
+    "userId": "fe1f5803-3978-4b88-b854-53d410b3b03b",
+    "balance": 2400000
+  },
+  {
+    "id": "a7566941-459c-4549-819f-0fee8790c621",
+    "userId": "d80765de-ff00-40ca-b6f5-22637a13feb6",
+    "balance": 2500000
+  },
+  {
+    "id": "c2cdf428-dcb5-4b47-ac26-2e02bcecfbb2",
+    "userId": "525bff6d-50cf-461b-aaee-887503537224",
+    "balance": 2600000
+  },
+  {
+    "id": "0e8be928-828e-4c34-a70e-958a49813b72",
+    "userId": "1a58be5c-93b2-4a60-92ef-20caa177fd57",
+    "balance": 2700000
+  },
+  {
+    "id": "c3e278e5-c476-472d-880e-b2ef7f29434d",
+    "userId": "2edb3fb5-29b7-4cce-804b-94260180fca6",
+    "balance": 2800000
+  },
+  {
+    "id": "ca600022-210f-4a9f-aa80-8a33b77ea3b2",
+    "userId": "b905a49e-dbd6-4823-91ce-a7ad5c87c71a",
+    "balance": 2900000
+  },
+  {
+    "id": "d963ee2a-55a8-4d59-b14d-e0aa88ebbce2",
+    "userId": "9402053a-b6ab-4865-977f-0f1ad713042d",
+    "balance": 3000000
+  },
+  {
+    "id": "26d78fde-f74e-4d62-be4e-00614e2a1a9a",
+    "userId": "d0ca7726-15f4-4b10-a0dc-3cc18a4791fd",
+    "balance": 3100000
+  },
+  {
+    "id": "57128278-df7a-40e2-bf84-245d99a2c1ee",
+    "userId": "f2369236-d387-400c-b210-2a7c0762b2c9",
+    "balance": 3200000
+  },
+  {
+    "id": "4b3b871a-f0b5-48dd-b195-3f1c94e84a0c",
+    "userId": "cccbac59-ee9c-43b5-8554-30e0375ada80",
+    "balance": 3300000
+  },
+  {
+    "id": "814b3f4d-18e1-4333-8e12-16933c1256f7",
+    "userId": "430c2252-3020-4ccc-8699-ddeda286ade5",
+    "balance": 3400000
+  },
+  {
+    "id": "4c75ef3a-e4d1-40af-8681-f781e4d4e6fc",
+    "userId": "6deb51ff-e51b-4d43-8b92-07a6ada405fa",
+    "balance": 3500000
+  },
+  {
+    "id": "7616f6cc-ac03-407c-a14b-ebdfc293cc6c",
+    "userId": "234e1b4a-88f5-4638-a3c3-728a5b4edb45",
+    "balance": 3600000
+  },
+  {
+    "id": "cb5a2ad7-1512-4388-82a8-bdc740162e11",
+    "userId": "491a227b-08ef-4338-9fcb-4134eecc2b83",
+    "balance": 3700000
+  },
+  {
+    "id": "e9788a04-0b7c-4bce-a881-9b21ac4e80cc",
+    "userId": "79ad0710-c209-40ed-a525-5636368b9cd6",
+    "balance": 3800000
+  },
+  {
+    "id": "c86d02d2-7e6f-41aa-ba03-35017618e414",
+    "userId": "ddb18ee7-bc55-41a8-b423-62bb9df2fdec",
+    "balance": 3900000
+  },
+  {
+    "id": "faa12f0d-e10f-4515-b31a-673284059dfa",
+    "userId": "cfe1b9ba-a33b-43c5-8b6c-f516a5a77c91",
+    "balance": 4000000
+  },
+  {
+    "id": "eabe45b1-bbb0-422b-a06b-87695738b56f",
+    "userId": "698a2864-30f2-4f56-aea3-5ccd18e8a524",
+    "balance": 4100000
+  },
+  {
+    "id": "39254862-54ac-4aef-a575-5e7766a0d342",
+    "userId": "9e6b5252-8ba1-46ff-8585-b127c52fde9a",
+    "balance": 4200000
+  },
+  {
+    "id": "50d2cac6-3776-49bf-80be-6b4863331fc2",
+    "userId": "fefdff3d-6691-441b-81b0-269195d2610c",
+    "balance": 4300000
+  },
+  {
+    "id": "6917aa1e-e749-40cb-9a62-2590c1535cb9",
+    "userId": "d2e36771-2cc9-4604-a422-d4efb0218171",
+    "balance": 4400000
+  },
+  {
+    "id": "cafef91d-3b29-40bc-ab79-f3ba28da273c",
+    "userId": "97e1afb2-38ae-400d-9f72-8dcd5ddd3832",
+    "balance": 4500000
+  },
+  {
+    "id": "33023560-6aaa-4336-91a8-84a8c0c5b283",
+    "userId": "a9ca2a58-8aa2-4976-8660-3dd9c1b90a7b",
+    "balance": 4600000
+  },
+  {
+    "id": "38538543-4a2b-4c56-b2af-f30a81fdebfe",
+    "userId": "6c300327-033b-4947-abf3-381aee2fac2d",
+    "balance": 4700000
+  },
+  {
+    "id": "fb7143cc-f739-470c-abe3-3f6572f068d0",
+    "userId": "6a6bff78-d4f3-45fd-bb36-6ea42752a24d",
+    "balance": 4800000
+  },
+  {
+    "id": "c9900d55-bba9-486e-b841-ffa8f60f085d",
+    "userId": "d6b9be6b-0c3a-4144-b0db-259d143dca7e",
+    "balance": 4900000
+  },
+  {
+    "id": "4499dbdb-c278-4693-aa9b-c081f86390cd",
+    "userId": "3b39e4e7-27bd-4ffb-a1c8-9619ff41cd24",
+    "balance": 5000000
+  },
+  {
+    "id": "96220f2a-8726-4aa4-a9f4-960f257b7bab",
+    "userId": "78be79a2-3951-4fc3-bd08-abc77b1b9e35",
+    "balance": 5100000
+  },
+  {
+    "id": "f09fd46b-89d5-4051-9ce0-8691b0fe2f0d",
+    "userId": "f47720d0-f4d5-47b5-84ab-83728817b25f",
+    "balance": 5200000
+  },
+  {
+    "id": "fa6b75fa-0515-4fe8-83f6-e4ac0ff0fa1f",
+    "userId": "f7d4b9a0-acff-4792-9b5c-679b431680d7",
+    "balance": 5300000
+  },
+  {
+    "id": "4b53fe77-2e93-4bd5-b512-90e47c691764",
+    "userId": "2e2595f0-acf7-4b4b-a807-8d04cd8d6d55",
+    "balance": 5400000
+  },
+  {
+    "id": "854c36f2-902c-4550-afa7-d20af1269d91",
+    "userId": "e8c7181f-8832-4844-aa38-203d81df6931",
+    "balance": 5500000
+  }
+]
