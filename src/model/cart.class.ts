@@ -1,15 +1,14 @@
 import { randomUUID } from "node:crypto";
+import { BaseEntity } from "./base.entity";
 import { CartItem } from "./cartItem.class";
 
-export class Cart {
-    readonly id: string;
-
+export class Cart extends BaseEntity {
     constructor(
         id: string = randomUUID(),
         readonly userId: string,
         public items: CartItem[] = []
     ) {
-        this.id = (!id || id.trim().length === 0) ? randomUUID() : id;
+        super(id);
         if (!userId || userId.trim().length === 0) {
             throw new Error("User ID cannot be empty");
         }

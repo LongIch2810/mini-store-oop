@@ -1,10 +1,9 @@
 import { randomUUID } from "node:crypto";
+import { BaseEntity } from "./base.entity";
 
 export type Role = "admin" | "user";
 
-export class User {
-    readonly id: string;
-
+export class User extends BaseEntity {
     constructor(
         id: string = randomUUID(),
         private name: string,
@@ -12,7 +11,7 @@ export class User {
         private password: string,
         private role: Role
     ) {
-        this.id = (!id || id.trim().length === 0) ? randomUUID() : id;
+        super(id);
         this.validateName(name);
         this.validateEmail(email);
         this.validatePassword(password);

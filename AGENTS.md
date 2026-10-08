@@ -72,12 +72,13 @@ erDiagram
 ## 3. Quy Tắc & Ràng Buộc Dành Cho Agent (Strict Rules)
 
 ### 3.1. Phân Lớp Model (`src/model/`)
-- **KHÔNG THÊM BẤT KỲ CLASS MODEL MỚI NÀO**: Giữ nguyên 5 model hiện có:
-  - `User` (`src/model/user.class.ts`)
-  - `Product` (`src/model/product.class.ts`)
-  - `Cart` (`src/model/cart.class.ts`)
+- **Kế thừa Thực thể (Inheritance)**: Các entity có ID kế thừa từ lớp cha trừu tượng `BaseEntity` (`src/model/base.entity.ts`).
+- **KHÔNG THÊM BẤT KỲ CLASS MODEL MỚI NÀO NGOÀI BASEENTITY**: Giữ nguyên 5 model hiện có:
+  - `User` (`src/model/user.class.ts`) - kế thừa `BaseEntity`
+  - `Product` (`src/model/product.class.ts`) - kế thừa `BaseEntity`
+  - `Cart` (`src/model/cart.class.ts`) - kế thừa `BaseEntity`
   - `CartItem` (`src/model/cartItem.class.ts`)
-  - `Wallet` (`src/model/wallet.class.ts`)
+  - `Wallet` (`src/model/wallet.class.ts`) - kế thừa `BaseEntity`
 - **Encapsulation & Validation (Đóng gói & Ràng buộc bất biến)**:
   - Các thuộc tính nhạy cảm đặt `private` hoặc `readonly`, truy xuất và thay đổi qua getters/setters và domain methods (`increaseStock`, `decreaseStock`, `getBalance`, `deposit`, `withdraw`, `addItem`, `removeItem`, etc.).
   - **Quy tắc kiểm tra hợp lệ (Invariants)**:

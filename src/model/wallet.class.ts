@@ -1,14 +1,13 @@
 import { randomUUID } from "node:crypto";
+import { BaseEntity } from "./base.entity";
 
-export class Wallet {
-    readonly id: string;
-
+export class Wallet extends BaseEntity {
     constructor(
         id: string = randomUUID(),
         readonly userId: string,
         private balance: number
     ) {
-        this.id = (!id || id.trim().length === 0) ? randomUUID() : id;
+        super(id);
         if (!userId || userId.trim().length === 0) {
             throw new Error("User ID cannot be empty");
         }

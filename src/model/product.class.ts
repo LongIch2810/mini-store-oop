@@ -1,15 +1,14 @@
 import { randomUUID } from "node:crypto";
+import { BaseEntity } from "./base.entity";
 
-export class Product {
-    readonly id: string;
-
+export class Product extends BaseEntity {
     constructor(
         id: string = randomUUID(),
         private name: string,
         private price: number,
         private stock: number
     ) {
-        this.id = (!id || id.trim().length === 0) ? randomUUID() : id;
+        super(id);
         this.validateName(name);
         this.validatePrice(price);
         this.validateStock(stock);

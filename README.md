@@ -28,7 +28,8 @@ mini-store-oop/
 │   ├── carts.json              # Giỏ hàng (PK: id, FK: userId -> User.id)
 │   └── cartitem.json           # Chi tiết mục giỏ hàng (FK: cartId, FK: productId)
 ├── src/
-│   ├── model/                  # Domain Model Entities (OOP Encapsulation)
+│   ├── model/                  # Domain Model Entities (OOP Encapsulation & Inheritance)
+│   │   ├── base.entity.ts      # Abstract BaseEntity (Kế thừa ID & UUID)
 │   │   ├── user.class.ts
 │   │   ├── product.class.ts
 │   │   ├── wallet.class.ts
