@@ -17,7 +17,137 @@ Dự án mô phỏng hệ thống quản lý bán hàng mini store áp dụng ch
 
 ---
 
-## 2. Kiến Trúc & Cấu Trúc Thư Mục
+## 2. Minh Chứng 4 Tính Chất OOP Trong Dự Án
+
+Dự án áp dụng đầy đủ và chặt chẽ cả 4 trụ cột của **Lập trình Hướng đối tượng (OOP)**:
+
+```mermaid
+classDiagram
+    class BaseEntity {
+        <<abstract>>
+        +readonly string id
+        +constructor(id?: string)
+    }
+    class User {
+        -string name
+        -string email
+        -string password
+        -Role role
+        +getName()
+        +getEmail()
+        +verifyPassword()
+    }
+    class Product {
+        -string name
+        -number price
+        -number stock
+        +increaseStock(amount)
+        +decreaseStock(amount)
+    }
+    class Wallet {
+        -string userId
+        -number balance
+        +deposit(amount)
+        +withdraw(amount)
+    }
+    class Cart {
+        -string userId
+        +items CartItem[]
+        +addItem(item)
+        +removeItem(productId)
+        +getTotalQuantity()
+    }
+    class CartItem {
+        +string cartId
+        +string productId
+        -number quantity
+        +setQuantity(qty)
+    }
+    
+    BaseEntity <|-- User : Kế thừa (Inheritance)
+    BaseEntity <|-- Product : Kế thừa (Inheritance)
+    BaseEntity <|-- Wallet : Kế thừa (Inheritance)
+    BaseEntity <|-- Cart : Kế thừa (Inheritance)
+    Cart "1" *-- "0..*" CartItem : Composition
+```
+
+---
+
+### 2.1. Tính Đóng Gói (Encapsulation)
+- **Bản chất**: Che giấu trạng thái dữ liệu nội tại của đối tượng bằng phạm vi truy cập `private`/`readonly`, ngăn chặn can thiệp trái phép từ bên ngoài và bảo đảm tính toàn vẹn (Invariants) thông qua getters/setters và các phương thức miền nghiệp vụ (Domain Methods).
+- **Dẫn chứng trong mã nguồn**:
+  - [src/model/user.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/user.class.ts): Các trường `name`, `email`, `password`, `role` đều là `private`. Dữ liệu đầu vào bắt buộc đi qua các hàm kiểm tra hợp lệ: `validateName` (không để trống), `validateEmail` (định dạng Regex RFC), `validatePassword` (tối thiểu 6 ký tự), `validateRole` (chỉ nhận `"admin" | "user"`).
+  - [src/model/product.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/product.class.ts): Các trường `price` và `stock` là `private`. Trạng thái kho hàng được bảo vệ bởi hai phương thức nghiệp vụ:
+    - `increaseStock(amount)`: Kiểm tra `amount` phải là số nguyên dương (> 0).
+    - `decreaseStock(amount)`: Ngăn chặn tuyệt đối việc trừ quá số lượng tồn kho hiện có (`stock - amount >= 0`).
+  - [src/model/wallet.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/wallet.class.ts): Biến `balance` là `private`. Mọi biến động số dư chỉ được thực hiện thông qua:
+    - `deposit(amount)`: Chỉ cho phép nạp số tiền dương.
+    - `withdraw(amount)`: Tự động kiểm tra số dư khả dụng (`balance >= amount`), chống số dư âm.
+  - [src/model/cart.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/cart.class.ts) & [src/model/cartItem.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/cartItem.class.ts): Quản lý danh sách sản phẩm thông qua `addItem(item)` và `removeItem(productId)` có kiểm tra hợp lệ, không cho phép gán mảng tùy ý.
+
+---
+
+### 2.2. Tính Kế Thừa (Inheritance)
+- **Bản chất**: Cho phép các lớp con kế thừa thuộc tính và hành vi chung từ một lớp cha trừu tượng cơ sở, loại bỏ trùng lặp mã nguồn (nguyên lý DRY - Don't Repeat Yourself).
+- **Dẫn chứng trong mã nguồn**:
+  - **Lớp cha trừu tượng [src/model/base.entity.ts](file:///d:/saved/Project/mini-store-oop/src/model/base.entity.ts)**:
+    ```typescript
+    import { randomUUID } from "node:crypto";
+
+    export abstract class BaseEntity {
+        readonly id: string;
+
+        constructor(id: string = randomUUID()) {
+            this.id = (!id || id.trim().length === 0) ? randomUUID() : id;
+        }
+    }
+    ```
+    Lớp này đóng gói định danh khóa chính duy nhất `readonly id: string` và cơ chế tự động cấp phát chuỗi UUID v4 ngẫu nhiên.
+  - **Các lớp con mở rộng (Extends)**:
+    - `User extends BaseEntity` ([src/model/user.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/user.class.ts#L6))
+    - `Product extends BaseEntity` ([src/model/product.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/product.class.ts#L4))
+    - `Wallet extends BaseEntity` ([src/model/wallet.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/wallet.class.ts#L4))
+    - `Cart extends BaseEntity` ([src/model/cart.class.ts](file:///d:/saved/Project/mini-store-oop/src/model/cart.class.ts#L5))
+  - Cả 4 thực thể đều gọi `super(id)` trong constructor, tự động thừa hưởng cơ chế khởi tạo và kiểm tra ID duy nhất mà không cần viết lại mã nguồn.
+
+---
+
+### 2.3. Tính Trừu Tượng (Abstraction)
+- **Bản chất**: Ẩn giấu các chi tiết kỹ thuật phức tạp (như thao tác đọc/ghi file hệ thống JSON, phân giải đường dẫn, xử lý bất đồng bộ I/O) và chỉ phơi bày giao diện (Contract/Interface) với các hành vi cốt lõi.
+- **Dẫn chứng trong mã nguồn**:
+  - **Abstract Class [BaseEntity](file:///d:/saved/Project/mini-store-oop/src/model/base.entity.ts)**: Không thể khởi tạo trực tiếp bằng từ khóa `new BaseEntity()`, định nghĩa trừu tượng hóa cho toàn bộ thực thể có khóa chính.
+  - **Interface Kho Dữ Liệu [src/interfaces/repository.interface.ts](file:///d:/saved/Project/mini-store-oop/src/interfaces/repository.interface.ts)**:
+    ```typescript
+    export interface IRepository<T> {
+        create(item: T): Promise<T>;
+        readAll(): Promise<T[]>;
+        read(id: string): Promise<T | null>;
+        update(id: string, item: Partial<T>): Promise<T | null>;
+        delete(id: string): Promise<boolean>;
+    }
+    ```
+    Định nghĩa hợp đồng CRUD chuẩn. Tầng Service chỉ cần giao tiếp thông qua hợp đồng `IRepository<T>` mà không cần phụ thuộc vào việc dữ liệu được lưu bằng file JSON, SQLite hay MongoDB.
+  - **Interface Dịch Vụ Nghiệp Vụ [src/interfaces/service.interface.ts](file:///d:/saved/Project/mini-store-oop/src/interfaces/service.interface.ts)**:
+    Tách biệt thành `IMustBePublic<T>` (các phương thức đọc công khai) và `IMustAuthorization<T>` (các phương thức bắt buộc xác thực quyền quản trị).
+
+---
+
+### 2.4. Tính Đa Hình (Polymorphism)
+- **Bản chất**: Cho phép các đối tượng hoặc lớp khác nhau phản hồi cùng một lời gọi phương thức hoặc giao diện chung theo những cách thức riêng biệt (Subtype Polymorphism, Parametric Polymorphism / Generics).
+- **Dẫn chứng trong mã nguồn**:
+  - **Đa hình kiểu con (Subtype Polymorphism qua Interface)**:
+    - Cả `UserRepository`, `ProductRepository`, `WalletRepository`, `CartRepository` đều cài đặt giao diện `IRepository<T>`.
+    - Khi gọi `read(id)`, mỗi repository có cách xử lý đa hình đặc thù:
+      - [UserRepository.read](file:///d:/saved/Project/mini-store-oop/src/repositories/user.repository.ts): Đọc và chuyển hóa plain JSON object thành thực thể `User`.
+      - [CartRepository.read](file:///d:/saved/Project/mini-store-oop/src/repositories/cart.repository.ts): Ngoài việc đọc giỏ hàng `Cart`, nó còn tự động truy vấn thêm các `CartItem` tương ứng từ `CartItemRepository` để nạp đầy đủ danh sách món hàng vào giỏ (Aggregate Rehydration).
+  - **Đa hình tham số hóa (Generics Polymorphism)**:
+    - Các interface `IRepository<T>` và `IService<T>` hoạt động đa hình trên nhiều kiểu thực thể khác nhau (`T = User`, `Product`, `Wallet`, `Cart`) mà vẫn đảm bảo tính an toàn kiểu tại thời điểm biên dịch (Type-Safe).
+  - **Mô hình Rich Domain Model thay vì Anemic Domain Model**:
+    - Thay vì viết mã thủ tục bên ngoài Service để tính toán dữ liệu, các hành vi nghiệp vụ được kích hoạt trực tiếp từ bản thân đối tượng (`wallet.withdraw(...)`, `product.decreaseStock(...)`, `cart.addItem(...)`), sau đó Service mới nhận đối tượng đã cập nhật để lưu trữ.
+
+---
+
+## 3. Kiến Trúc & Cấu Trúc Thư Mục
 
 ```
 mini-store-oop/
@@ -59,7 +189,7 @@ mini-store-oop/
 
 ---
 
-## 3. Sơ Đồ Quan Hệ Dữ Liệu (ERD)
+## 4. Sơ Đồ Quan Hệ Dữ Liệu (ERD)
 
 ```mermaid
 erDiagram
@@ -99,7 +229,7 @@ erDiagram
 
 ---
 
-## 4. Công Nghệ Sử Dụng
+## 5. Công Nghệ Sử Dụng
 
 - **Runtime**: [Node.js](https://nodejs.org/) (v22+)
 - **Ngôn ngữ**: [TypeScript](https://www.typescriptlang.org/) (v5+/v7+) với `strict: true`
@@ -108,26 +238,26 @@ erDiagram
 
 ---
 
-## 5. Hướng Dẫn Cài Đặt & Sử Dụng
+## 6. Hướng Dẫn Cài Đặt & Sử Dụng
 
-### 5.1. Cài đặt Dependencies
+### 6.1. Cài đặt Dependencies
 ```bash
 npm install
 ```
 
-### 5.2. Chạy ứng dụng ở chế độ Development
+### 6.2. Chạy ứng dụng ở chế độ Development (Console CLI)
 Thực thi trực tiếp mã TypeScript mà không cần build:
 ```bash
 npm run dev
 ```
 
-### 5.3. Biên dịch sang JavaScript (Build)
+### 6.3. Biên dịch sang JavaScript (Build)
 Biên dịch toàn bộ mã nguồn từ `src/` sang thư mục `dist/`:
 ```bash
 npm run build
 ```
 
-### 5.4. Chạy phiên bản Production
+### 6.4. Chạy phiên bản Production
 Chạy file JavaScript đã build bằng Node.js:
 ```bash
 npm start
@@ -135,9 +265,21 @@ npm start
 
 ---
 
-## 6. Quy Ước Lập Trình (OOP Conventions)
+## 7. Tài Khoản Thử Nghiệm
+
+Hệ thống có sẵn 50 tài khoản người dùng được sinh sẵn trong `data/users.json`:
+
+| Vai Trò (Role) | Email Đăng Nhập | Mật Khẩu | Quyền Hạn |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `user1@ministore.com` | `password1` | Quản trị toàn bộ: Xem/Tạo/Sửa/Xóa User, Product, xem Wallet, Cart |
+| **User (Khách)** | `user6@ministore.com` | `password6` | Xem sản phẩm, Nạp tiền ví, Thêm giỏ hàng, Thanh toán (Checkout) |
+
+---
+
+## 8. Quy Ước Lập Trình (OOP Conventions)
 
 1. **Model**:
+   - Kế thừa lớp trừu tượng `BaseEntity` cho mọi thực thể có ID.
    - Chỉ sử dụng 5 Model cốt lõi (`User`, `Product`, `Wallet`, `Cart`, `CartItem`).
    - Mọi thuộc tính thay đổi trạng thái đều phải thông qua getter/setter hoặc domain method có validate.
 2. **Repository**:
@@ -145,3 +287,4 @@ npm start
    - Khi ghi dữ liệu, ghi đè toàn bộ mảng JSON hợp lệ, không dùng `appendFile` chắp vá chuỗi JSON.
 3. **Service**:
    - Thao tác tạo/sửa/xóa yêu cầu tham số `role: Role`. Nếu người dùng là `user`, từ chối thao tác và thông báo `403 Forbidden`.
+
